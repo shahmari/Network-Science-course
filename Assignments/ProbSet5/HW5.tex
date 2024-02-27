@@ -1,0 +1,60 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+
+\begin{document}
+
+\title{Homework Assignment}
+\author{Yaghoub Shahmari - 98100883}
+\date{}
+\maketitle
+
+\section*{4.1:}
+
+$$k_{max} = k_{min} N^{1/\gamma - 1}$$
+
+\begin{center}
+    \begin{tabular}{ |c|c|c|c|c| }
+        \hline
+        Network & Internet & Science Collaboration & Actor Network & Protein Interactions \\
+        \hline
+        $k_max$ & 153 & 72 & 166019 & 56 \\
+        \hline
+    \end{tabular}
+\end{center}
+
+\section*{4.2:}
+
+\subsection*{a.}
+
+\begin{align*}
+& \text{The normalization condition is:} \\
+& \int_{k_{\min}}^{k_{\max}} q_k \,dk = \int_{k_{\min}}^{k_{\max}} p_k \, dk = 1 \\
+& \text{Plugging in } p_k = C k^{-\gamma} \text{ and solving, we get:} \\  
+& C = \frac{\gamma - 1}{k_{\max}^{1-\gamma} - k_{\min}^{1-\gamma}} \Rightarrow A = \frac{\gamma - 2}{\gamma - 1}\frac{k_{\max}^{1-\gamma} - k_{\min}^{1-\gamma}}{k_{\max}^{2-\gamma} - k_{\min}^{2-\gamma}}
+\end{align*}
+
+\subsection*{b.}
+
+$$\langle k \rangle_q = \int_{k_{\min}}^{k_{\max}} k q_k \, dk = A C \int_{k_{\min}}^{k_{\max}} k^{1-\gamma+1} \, dk = \frac{\gamma - 2}{3 - \gamma} \frac{k_{\max}^{3-\gamma} - k_{\min}^{3-\gamma}}{k_{\max}^{2-\gamma} - k_{\min}^{2-\gamma}}$$
+
+\subsection*{c.}
+
+\begin{align*} 
+& \langle k \rangle_p = C (\gamma - 2) (k_{\max}^{2-\gamma} - k_{\min}^{2-\gamma}) 
+\end{align*}
+
+Plugging in the given values $\gamma = 2.1$, $k_{\min} = 1$, $k_{\max} = \sqrt{N} \approx 10^4$, we get:  
+
+$\langle k \rangle_p = 0.446$   and     $\langle k \rangle_q = 61.2$
+
+So $\langle k \rangle_q > \langle k \rangle_p$ showing the friendship paradox.
+
+\subsection*{d.}
+
+This "friendship paradox" occurs because high degree nodes are more likely to be connected to any given node. So when choosing a neighbor at random, we are more likely to select these high degree nodes compared to if we selected nodes randomly. So the neighbors tend to have higher degree on average than the nodes themselves.
+
+\section*{Summary of the reference:}
+
+This article empirically analyzes the distribution of citations for scientific publications using two large datasets - over 780,000 papers published in 1981 catalogued by the Institute for Scientific Information (ISI) and over 24,000 papers published in Physical Review D journals from 1975-1994. By constructing a Zipf plot that ranks papers by number of citations, the author finds evidence that the asymptotic tail of the citation distribution follows a power law, with the number of papers cited $x$ times decaying as $x^{-\alpha}$, where $\alpha$ is approximately 3. This suggests that a small fraction of papers are cited very heavily, while most papers receive few citations. The continuing evolution of citation statistics over time is also highlighted.
+\end{document}
